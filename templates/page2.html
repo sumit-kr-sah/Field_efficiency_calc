@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Efficiency Calculator</title>
+    <link rel="stylesheet" href="/static/page2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Field Efficiency Calculator</h1>
+        <form action="/calculate_efficiency" method="POST">
+            <div class="input-field">
+                <label for="speed">Tractor Speed (km/h):</label>
+                <input type="text" id="speed" name="speed" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="width_of_cut">Width of Cut (m):</label>
+                <input type="text" id="width_of_cut" name="width_of_cut" required>
+            </div>
+
+            <div class="input-field">
+                <label for="field_area">Field Area (hectares):</label>
+                <input type="text" id="field_area" name="field_area" required>
+            </div>
+
+            <div class="input-field">
+                <label for="total_time">Total Time (hours):</label>
+                <input type="text" id="total_time" name="total_time" required>
+            </div>
+
+            <div class="submit-button">
+                <input type="submit" value="Calculate">
+            </div>
+        </form>
+
+        {% if field_efficiency %}
+        <div class="result">
+            <h2>Field Efficiency: {{ field_efficiency }}%</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

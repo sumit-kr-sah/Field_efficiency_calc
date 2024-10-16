@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cards</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1 class="heading">Field Efficiency Calculator</h1>
+    <div class="card-container">
+        <a href="{{ url_for('page1') }}" class="card">
+            <img src="/static/download.jpeg" alt="Image 1">
+            <div class="card-title">MB Plow</div>
+        </a>
+        <a href="{{ url_for('page2') }}" class="card">
+            <img src="/static/disk.jpeg" alt="Image 2">
+            <div class="card-title">Disk Plow</div>
+        </a>
+        <a href="{{ url_for('harrow_calculator') }}" class="card">
+            <img src="/static/harrow.jpeg" alt="Image 3">
+            <div class="card-title">Disk Harrow</div>
+        </a>
+        <a href="{{ url_for('cultivator') }}" class="card">
+            <img src="/static/cultivator.jpeg" alt="Image 4">
+            <div class="card-title">Cultivator</div>
+        </a>
+        <a href="{{ url_for('page5') }}" class="card">
+            <img src="/static/rotavator.jpeg" alt="Image 5">
+            <div class="card-title">Rotavator</div>
+        </a>
+        <a href="{{ url_for('page6') }}" class="card">
+            <img src="/static/drill.jpeg" alt="Image 6">
+            <div class="card-title">Seed Drill</div>
+        </a>
+        <a href="{{ url_for('page7') }}" class="card">
+            <img src="/static/sprayer.jpeg" alt="Image 7">
+            <div class="card-title">Sprayer</div>
+        </a>
+        <a href="{{ url_for('page8') }}" class="card">
+            <img src="/static/weeder.jpeg" alt="Image 8">
+            <div class="card-title">Weeder</div>
+        </a>
+    </div>
+</body>
+</html>

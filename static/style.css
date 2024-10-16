@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f8f1; /* Soft green background for a natural feel */
+    padding: 20px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #2e6a34; /* Dark green to reflect growth and nature */
+    font-weight: bold;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Add consistent spacing between cards */
+}
+
+.card {
+    width: 23%;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background-color: #ffffff; /* Keep it light for contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #dff0dc; /* Light green background for card title */
+    color: #2e6a34;
+    border-radius: 0 0 12px 12px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #eaf7e3; /* Subtle change on hover */
+}

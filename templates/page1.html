@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Efficiency of MB Plow</title>
+    <link rel="stylesheet" href="/static/page1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Field Efficiency of MB Plow</h1>
+        <form method="POST" action="{{ url_for('page1') }}">
+            <label for="num_mouldboards">Number of Mouldboards:</label>
+            <input type="number" id="num_mouldboards" name="num_mouldboards" required>
+
+            <label for="num_bottoms">Number of Bottoms per Mouldboard:</label>
+            <input type="number" id="num_bottoms" name="num_bottoms" required>
+
+            <label for="width_of_cut">Width of Cut (in meters):</label>
+            <input type="number" step="0.01" id="width_of_cut" name="width_of_cut" required>
+
+            <label for="actual_time_taken">Actual Time Taken (in hours):</label>
+            <input type="number" step="0.01" id="actual_time_taken" name="actual_time_taken" required>
+
+            <label for="actual_distance_traveled">Actual Distance Traveled (in meters):</label>
+            <input type="number" id="actual_distance_traveled" name="actual_distance_traveled" required>
+
+            <label for="average_speed">Average Speed (in km/h):</label>
+            <input type="number" step="0.01" id="average_speed" name="average_speed" required>
+
+            <input type="submit" value="Calculate Efficiency">
+        </form>
+
+        {% if result %}
+            <h2>Field Efficiency: {{ result }}%</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

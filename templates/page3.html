@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrow Field Efficiency Calculator</title>
+    <link rel="stylesheet" href="/static/page3.css">
+    <script>
+        // Function to show/hide specific input fields based on selected harrow type
+        function updateHarrowFields() {
+            const harrowType = document.getElementById('harrow_type').value;
+            const discSpacingField = document.getElementById('N');
+            const discBladeField = document.getElementById('N1');
+
+            if (harrowType === "1") {  // Single-Acting Disc Harrow
+                discSpacingField.parentElement.style.display = 'block';
+                discBladeField.parentElement.style.display = 'none';
+            } else if (harrowType === "2") {  // Offset Disc Harrow
+                discSpacingField.parentElement.style.display = 'none';
+                discBladeField.parentElement.style.display = 'block';
+            }
+        }
+
+        // Run on page load to set initial visibility
+        window.onload = updateHarrowFields;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Harrow Field Efficiency Calculator</h1>
+        <form method="POST" action="/harrow">
+            <div class="input-field">
+                <label for="speed">Speed of Tractor (km/h):</label>
+                <input type="text" id="speed" name="speed" required>
+            </div>
+            <div class="input-field">
+                <label for="area">Area Covered (ha):</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="input-field">
+                <label for="time">Total Time Spent (hours):</label>
+                <input type="text" id="time" name="time" required>
+            </div>
+            <div class="input-field">
+                <label for="ridge_height">Ridge Height (cm):</label>
+                <input type="text" id="ridge_height" name="ridge_height" required>
+            </div>
+            <div class="input-field">
+                <label for="gang_angle">Gang Angle (degrees):</label>
+                <input type="text" id="gang_angle" name="gang_angle" required>
+            </div>
+            <div class="input-field">
+                <label for="disc_diameter">Disc Blade Diameter (cm):</label>
+                <input type="text" id="disc_diameter" name="disc_diameter" required>
+            </div>
+            <div class="input-field">
+                <label for="harrow_type">Disc Harrow Type:</label>
+                <select id="harrow_type" name="harrow_type" onchange="updateHarrowFields()" required>
+                    <option value="1">Single-Acting Disc Harrow</option>
+                    <option value="2">Offset Disc Harrow</option>
+                </select>
+            </div>
+            <div id="harrow-specific-fields">
+                <div class="input-field" id="spacing-field">
+                    <label for="N">Number of Disc Spacings (N):</label>
+                    <input type="text" id="N" name="N">
+                </div>
+                <div class="input-field" id="blades-field" style="display: none;">
+                    <label for="N1">Number of Disc Blades (N1):</label>
+                    <input type="text" id="N1" name="N1">
+                </div>
+            </div>
+            <div class="submit-button">
+                <input type="submit" value="Calculate">
+            </div>
+        </form>
+
+        {% if tfc is not none %}
+        <div class="result">
+            <h2>Results</h2>
+            <p><strong>Disc Spacing:</strong> {{ spacing }} cm</p>
+            <p><strong>Cutting Width:</strong> {{ cutting_width }} m</p>
+            <p><strong>Theoretical Field Capacity (TFC):</strong> {{ tfc }} ha/h</p>
+            <p><strong>Actual Field Capacity (AFC):</strong> {{ afc }} ha/h</p>
+            <p><strong>Field Efficiency:</strong> {{ field_efficiency }} %</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

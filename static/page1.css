@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f6f9;
+    font-family: 'Poppins', Arial, sans-serif; /* A modern, cleaner font */
+    background: linear-gradient(135deg, #f0f4c3, #8bc34a); /* Green gradient */
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,47 +13,54 @@ body {
 /* Container */
 .container {
     width: 100%;
-    max-width: 500px; /* Increased width for a better layout */
-    margin-top: 50px;
-    padding: 20px;
+    max-width: 600px; /* Increased width for a better layout */
+    margin-top: 80px; /* Increased top margin for better spacing */
+    padding: 30px;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
     text-align: center;
+    border: 1px solid #e0e0e0;
 }
 
 /* Heading */
 h1 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #2c3e50;
+    font-size: 2.5rem; /* Increased size for visual impact */
+    margin-bottom: 30px; /* More spacing below heading */
+    color: #2c3e50; /* Darker color for better contrast */
+    font-weight: bold; /* Bold text for emphasis */
+    letter-spacing: 1px; /* Subtle letter-spacing for a polished look */
 }
 
 /* Form Styles */
 form {
-    background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #f9f9f9; /* Softer background inside the form */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Lighter shadow */
 }
 
 /* Labels */
 label {
     display: block;
     margin-top: 20px;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    color: #333;
+    margin-bottom: 8px; /* Adjust spacing for better readability */
+    font-size: 1.1rem;
+    color: #2c3e50; /* Darker color for readability */
+    font-weight: bold; /* Increased weight for clarity */
 }
 
 /* Input Fields */
 input[type="number"] {
     width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 15px;
+    padding: 14px; /* Slightly larger padding for a comfortable feel */
+    margin-top: 10px;
+    margin-bottom: 20px; /* Increased bottom margin for space between fields */
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
+    border-radius: 8px; /* Softer corners */
+    font-size: 1.1rem; /* Slightly larger font for better legibility */
+    background-color: #f0f4f8; /* Lighter background for input fields */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Input Focus */
@@ -61,45 +68,45 @@ input[type="number"]:focus {
     border-color: #3498db;
     outline: none;
     background-color: #ffffff;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3); /* Stronger shadow on focus */
 }
 
 /* Submit Button */
 input[type="submit"] {
     width: 100%;
-    padding: 14px;
-    background-color: #3498db;
+    padding: 16px; /* Larger padding for a more prominent button */
+    background-color: #28a745; /* Changed to a green submit button */
     border: none;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Larger font size for readability */
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 8px; /* Softer corners for buttons */
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #2980b9;
+    background-color: #218838; /* Darker green on hover */
 }
 
 /* Result */
 h2 {
-    margin-top: 25px;
-    color: #27ae60;
-    font-size: 1.5rem;
+    margin-top: 30px; /* More space above result */
+    color: #27ae60; /* Brighter green for success message */
+    font-size: 1.6rem; /* Slightly larger for better emphasis */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem; /* Adjust heading for smaller screens */
     }
 
     input[type="submit"] {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }

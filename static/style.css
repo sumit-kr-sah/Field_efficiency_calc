@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f8f1; /* Soft green background for a natural feel */
+    background: linear-gradient(135deg, #f0f4c3, #8bc34a); /* Green gradient */
     padding: 20px;
 }
 

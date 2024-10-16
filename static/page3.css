@@ -1,61 +1,110 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', Arial, sans-serif; /* Modern font for a cleaner look */
+    background: linear-gradient(135deg, #f0f4c3, #8bc34a); /* Green gradient */
     margin: 0;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height for centering */
 }
 
+/* Container */
 .container {
     max-width: 600px;
     margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Pure white for contrast */
+    padding: 30px; /* Increased padding for a more spacious feel */
+    border-radius: 10px; /* Softer edges */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
 }
 
+/* Heading */
 h1 {
     text-align: center;
+    font-size: 2.2rem; /* Slightly larger heading */
+    color: #2c3e50; /* Darker color for better contrast */
+    font-weight: 700; /* Emphasize the heading */
+    margin-bottom: 25px; /* Add spacing below the heading */
+    letter-spacing: 1px; /* Add some space between characters */
 }
 
+/* Input Field Styles */
 .input-field {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased space between fields */
 }
 
 .input-field label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* More space between label and input */
+    font-size: 1rem;
+    font-weight: 600; /* Slightly bold labels */
+    color: #333; /* Darker label color for clarity */
 }
 
 .input-field input,
 .input-field select {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px; /* Increased padding for a more luxurious feel */
+    border: 1px solid #ccc; /* Softer border color */
+    border-radius: 6px; /* Rounded edges */
+    font-size: 1rem; /* Consistent font size */
+    background-color: #fafafa; /* Light input background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus effect */
 }
 
+.input-field input:focus,
+.input-field select:focus {
+    border-color: #3498db; /* Blue border on focus */
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.2); /* Subtle glow on focus */
+    outline: none;
+}
+
+/* Submit Button */
 .submit-button {
     text-align: center;
+    margin-top: 20px; /* Spacing before the button */
 }
 
 .submit-button input {
-    background-color: #28a745;
+    background-color: #28a745; /* Green for primary action */
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: 12px 18px; /* Increased padding for comfort */
+    border-radius: 6px; /* Rounded corners */
+    font-size: 1.1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .submit-button input:hover {
-    background-color: #218838;
+    background-color: #218838; /* Darker green on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow on hover for depth */
 }
 
+/* Result Box */
 .result {
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 25px; /* Added margin for spacing */
+    padding: 15px; /* Slightly more padding */
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #f9f9f9;
+    color: #2c3e50; /* Darker text for readability */
+    font-size: 1rem; /* Consistent font size */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Smaller heading for small screens */
+    }
+
+    input[type="submit"] {
+        font-size: 1rem;
+    }
 }

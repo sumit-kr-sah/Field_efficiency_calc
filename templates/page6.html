@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Drill Efficiency Calculator</title>
+    <link rel="stylesheet" href="/static/page6.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Seed Drill Efficiency Calculator</h1>
+        <form method="POST" action="/seed_drill">
+            <div class="input-field">
+                <label for="num_of_rows">Number of Rows:</label>
+                <input type="number" id="num_of_rows" name="num_of_rows" required>
+            </div>
+            <div class="input-field">
+                <label for="row_spacing">Row Spacing (m):</label>
+                <input type="number" id="row_spacing" name="row_spacing" required>
+            </div>
+            <div class="input-field">
+                <label for="speed">Speed of Seed Drill (km/h):</label>
+                <input type="number" id="speed" name="speed" required>
+            </div>
+            <div class="input-field">
+                <label for="area_covered">Area Covered (ha):</label>
+                <input type="number" id="area_covered" name="area_covered" required>
+            </div>
+            <div class="input-field">
+                <label for="time_spent">Total Time Spent (hours):</label>
+                <input type="number" id="time_spent" name="time_spent" required>
+            </div>
+            <div class="input-field">
+                <label for="time_loss_percent">Time Loss (percentage):</label>
+                <input type="number" id="time_loss_percent" name="time_loss_percent" required>
+            </div>
+            <div class="submit-button">
+                <input type="submit" value="Calculate">
+            </div>
+        </form>
+
+        {% if tfc %}
+        <div class="result">
+            <h2>Results</h2>
+            <p><strong>Theoretical Field Capacity (TFC):</strong> {{ tfc }} hectares/hour</p>
+            <p><strong>Effective Field Capacity (EFC):</strong> {{ efc }} hectares/hour</p>
+            <p><strong>Field Efficiency:</strong> {{ efficiency }} %</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

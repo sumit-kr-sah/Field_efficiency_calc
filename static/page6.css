@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4c3, #8bc34a); /* Green gradient */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%; /* Changed to 50% width for centered layout */
+    margin: 100px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px; /* Slightly larger border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold; /* Made label text bold */
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px; /* Increased padding for input fields */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-button {
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 100%; /* Button width matches form field width */
+    background-color: #28a745; /* Updated color to match new theme */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px; /* Slightly reduced border radius */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px; /* Increased font size for results */
+    color: #333;
+}

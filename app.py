@@ -242,14 +242,56 @@ def page5():
         return render_template('page5.html', result=result)
     return render_template('page5.html', result=None)
 
+
+
+
+
+
+
 # Logic for Page 6
-@app.route('/page6', methods=['GET', 'POST'])
-def page6():
+# Function to calculate Theoretical Field Capacity (TFC)
+def drill_calculate_tfc(implement_width, speed):
+    tfc = (implement_width * speed) / 10
+    return tfc
+
+# Function to calculate Effective Field Capacity (EFC)
+def drill_calculate_efc(area_covered, time_spent):
+    efc = area_covered / time_spent
+    return efc
+
+# Function to calculate Field Efficiency
+def drill_calculate_field_efficiency(efc, tfc):
+    efficiency = (efc / tfc) * 100
+    return efficiency
+
+# Route for Seed Drill Efficiency Calculator
+@app.route('/seed_drill', methods=['GET', 'POST'])
+def seed_drill():
     if request.method == 'POST':
-        data = request.form.get('data')
-        result = f"Processed data: {data}"
-        return render_template('page6.html', result=result)
-    return render_template('page6.html', result=None)
+        num_of_rows = int(request.form['num_of_rows'])
+        row_spacing = float(request.form['row_spacing'])
+        speed = float(request.form['speed'])
+        area_covered = float(request.form['area_covered'])
+        time_spent = float(request.form['time_spent'])
+        time_loss_percent = float(request.form['time_loss_percent'])
+
+        actual_time_spent = time_spent * ((100 - time_loss_percent) / 100)
+        implement_width = num_of_rows * row_spacing
+
+        tfc = drill_calculate_tfc(implement_width, speed)
+        efc = drill_calculate_efc(area_covered, actual_time_spent)
+        efficiency = drill_calculate_field_efficiency(efc, tfc)
+
+        return render_template('page6.html', tfc=tfc, efc=efc, efficiency=efficiency)
+
+    return render_template('page6.html')
+
+
+
+
+
+
+
 
 # Logic for Page 7
 @app.route('/page7', methods=['GET', 'POST'])

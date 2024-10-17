@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weeder Field Efficiency Calculator</title>
+    <link rel="stylesheet" href="/static/page8.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weeder Field Efficiency</h1>
+        <form method="POST" action="/weeder">
+            <div class="input-field">
+                <label for="speed">Speed of Tractor (km/h):</label>
+                <input type="text" id="speed" name="speed" required>
+            </div>
+            <div class="input-field">
+                <label for="row_spacing">Row Spacing (cm):</label>
+                <input type="text" id="row_spacing" name="row_spacing" required>
+            </div>
+            <div class="input-field">
+                <label for="working_width">Weeder Working Width (m):</label>
+                <input type="text" id="working_width" name="working_width" required>
+            </div>
+            <div class="input-field">
+                <label for="area">Area Covered (ha):</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="input-field">
+                <label for="time">Total Time Spent (hours):</label>
+                <input type="text" id="time" name="time" required>
+            </div>
+            <div class="input-field">
+                <label for="time_loss_percent">Time Loss Percentage (%):</label>
+                <input type="text" id="time_loss_percent" name="time_loss_percent" required>
+            </div>
+            <div class="submit-button">
+                <input type="submit" value="Calculate">
+            </div>
+        </form>
+
+        {% if tfc is not none %}
+        <div class="result">
+            <h2>Results</h2>
+            <p><strong>Theoretical Field Capacity (TFC):</strong> {{ tfc }} ha/h</p>
+            <p><strong>Actual Field Capacity (AFC):</strong> {{  efc }} ha/h</p>
+            <p><strong>Field Efficiency:</strong> {{ efficiency }} %</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

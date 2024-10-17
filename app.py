@@ -290,9 +290,6 @@ def seed_drill():
 
 
 
-
-
-
 # Logic for Page 7
 @app.route('/page7', methods=['GET', 'POST'])
 def page7():
@@ -302,14 +299,105 @@ def page7():
         return render_template('page7.html', result=result)
     return render_template('page7.html', result=None)
 
-# Logic for Page 8
-@app.route('/page8', methods=['GET', 'POST'])
-def page8():
+# Function to calculate Theoretical Field Capacity (TFC)
+def calculate_tfc(implement_width, speed):
+    return (implement_width * speed) / 10
+
+# Function to calculate Effective Field Capacity (EFC)
+def calculate_efc(area_covered, time_spent):
+    return area_covered / time_spent
+
+# Function to calculate Field Efficiency
+def calculate_field_efficiency(efc, tfc):
+    return (efc / tfc) * 100
+
+
+@app.route('/sprayer', methods=['GET', 'POST'])
+def sprayer_calculator():
     if request.method == 'POST':
-        data = request.form.get('data')
-        result = f"Processed data: {data}"
-        return render_template('page8.html', result=result)
-    return render_template('page8.html', result=None)
+        try:
+            # Get form data
+            boom_width = float(request.form['boom_width'])
+            speed = float(request.form['speed'])
+            area_covered = float(request.form['area'])
+            time_spent = float(request.form['time'])
+            time_loss_percent = float(request.form['time_loss_percent'])
+
+            # Calculate actual time spent after accounting for time loss
+            actual_time_spent = time_spent * ((100 - time_loss_percent) / 100)
+
+            # Calculate TFC, EFC, and Field Efficiency
+            tfc = calculate_tfc(boom_width, speed)
+            efc = calculate_efc(area_covered, actual_time_spent)
+            efficiency = calculate_field_efficiency(efc, tfc)
+
+          
+
+            # Render the results on the same page
+            return render_template('page7.html', tfc=tfc, efc=efc, efficiency=efficiency)
+
+        except ValueError:
+            return "Invalid input. Please enter numeric values only."
+    
+    return render_template('page7.html', tfc=None)
+
+
+
+# Logic for Page 8
+# Function to calculate Theoretical Field Capacity (TFC)
+
+# Function to calculate Theoretical Field Capacity (TFC)
+def calculate_tfc(implement_width, speed):
+    return (implement_width * speed) / 10
+
+# Function to calculate Effective Field Capacity (EFC)
+def calculate_efc(area_covered, time_spent):
+    return area_covered / time_spent
+
+# Function to calculate Field Efficiency
+def calculate_field_efficiency(efc, tfc):
+    return (efc / tfc) * 100
+
+
+
+
+@app.route('/page8', methods=['GET'])
+def page8():
+    return render_template('page8.html')
+
+@app.route('/weeder', methods=['GET', 'POST'])
+def weeder_calculator():
+    if request.method == 'POST':
+        try:
+            # Get form data
+            working_width = float(request.form['working_width'])
+            speed = float(request.form['speed'])
+            area_covered = float(request.form['area'])
+
+            time_spent = float(request.form['time'])
+            time_loss_percent = float(request.form['time_loss_percent'])
+
+            # Calculate adjusted time spent
+            actual_time_spent = time_spent * ((100 - time_loss_percent) / 100)
+
+            # Calculate TFC and EFC
+            tfc = calculate_tfc(working_width, speed)
+            efc = calculate_efc(area_covered, actual_time_spent)
+
+            # Calculate Field Efficiency
+            efficiency = calculate_field_efficiency(efc, tfc)
+
+            # Store results
+            results = [f"Weeder", working_width, speed, area_covered, actual_time_spent, tfc, efc, efficiency]
+
+           
+
+            # Pass results to the same template
+            return render_template('page8.html', tfc=tfc, efc=efc, efficiency=efficiency)
+        except ValueError:
+            return "Invalid input. Please ensure all values are numeric."
+
+    return render_template('page8.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprayer Field Efficiency Calculator</title>
+    <link rel="stylesheet" href="/static/page7.css"> <!-- Link to your CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Sprayer Field Efficiency Calculator</h1>
+        <form method="POST" action="/sprayer">
+            <div class="input-field">
+                <label for="boom_width">Boom Width (m):</label>
+                <input type="text" id="boom_width" name="boom_width" required>
+            </div>
+            <div class="input-field">
+                <label for="speed">Speed (km/h):</label>
+                <input type="text" id="speed" name="speed" required>
+            </div>
+            <div class="input-field">
+                <label for="area">Area Covered (hectares):</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="input-field">
+                <label for="time">Time Spent (hours):</label>
+                <input type="text" id="time" name="time" required>
+            </div>
+            <div class="input-field">
+                <label for="time_loss_percent">Time Loss (%):</label>
+                <input type="text" id="time_loss_percent" name="time_loss_percent" required>
+            </div>
+            <div class="submit-button">
+                <input type="submit" value="Calculate">
+            </div>
+        </form>
+
+        {% if tfc is not none %}
+        <div class="result">
+            <h2>Results</h2>
+            <p><strong>Theoretical Field Capacity (TFC):</strong> {{ tfc }} ha/h</p>
+            <p><strong>Effective Field Capacity (EFC):</strong> {{ efc }} ha/h</p>
+            <p><strong>Field Efficiency:</strong> {{ efficiency }} %</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
